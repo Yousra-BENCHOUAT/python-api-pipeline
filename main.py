@@ -29,3 +29,12 @@ def get_item(item_id: int):
     if item_id not in items:
         return {"error": "item not found"}
     return items[item_id]
+
+@app.get("/status")
+def status():
+    return {
+        "status": "running",
+        "version": "2.0.0",
+        "environment": "production",
+        "kubernetes": True
+    }
